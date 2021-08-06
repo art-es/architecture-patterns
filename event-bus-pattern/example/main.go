@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	bus := eventbus.NewBus()
+	bus := eventbus.New()
 	sub := bus.Subscribe("example-channel", 1)
 
 	bus.Publish("example-channel", "example-source")

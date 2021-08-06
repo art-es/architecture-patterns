@@ -52,6 +52,6 @@ func (b *Bus) removeEvent(event string, pos int) {
 	}
 }
 
-func NewBus() *Bus {
+func New() *Bus {
 	return &Bus{channels: make(map[string][]chan<- source)}
 }
