@@ -10,6 +10,9 @@ type Bus struct {
 }
 
 func (b *Bus) Publish(event string, source interface{}) {
+	b.mu.RLock()
+	defer b.mu.RUnlock()
+
 	if cc, ok := b.channels[event]; ok {
 		for _, c := range cc {
 			c <- source
